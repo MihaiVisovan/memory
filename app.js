@@ -1,23 +1,26 @@
+// const cards = require('./Media/Images/cards.js');
 const numberOfCards = 30;
-const cardsPerRow = 6;
-var imagesList = Array.from(Array(15) , (_,x) => x + 1);
-imagesList = imagesList.concat(imagesList);
-var imageIndex = 0;
-var numberOfClicks = 0;
-var firstImageId = 0;
-var secondImageId = 0;
+const theme = new Audio('Media/Music/theme.mp3');
+const win = new Audio('Media/Music/win.mp3');
+const lose = new Audio('Media/Music/lose.mp3');
+let numberOfClicks = 0;
+let firstImageId = 0;
+let secondImageId = 0;
+let startMusic = true;
+let shuffledCards = [];
 
-window.onload = function() {
-    imagesList = shuffle(imagesList);
+window.onload = () => {
+    shuffledCards = shuffle(easyCards);
     for (i = 0; i < numberOfCards; i++) {
-
         let card = document.createElement("div");
         card.className = "card";
 
         let innerCard = document.createElement("div");
         innerCard.className = "card-inner";
-        innerCard.setAttribute("id", i);
-        innerCard.addEventListener('click', swapCardFace);
+        innerCard.setAttribute("id", shuffledCards[i].id);
+        setTimeout(() => {
+            innerCard.addEventListener('click', swapCardFace);
+        }, 5000)
 
         let frontCard = document.createElement("div")
         frontCard.className = "card-front";
@@ -25,7 +28,7 @@ window.onload = function() {
 
         let backCard = document.createElement("div");
         backCard.className = "card-back";
-        backCard.style.backgroundImage = getRandomImage();
+        backCard.style.backgroundImage = shuffledCards[i].path;
 
         card.appendChild(innerCard);
         innerCard.appendChild(frontCard);
@@ -33,16 +36,26 @@ window.onload = function() {
 
         document.getElementById("cards").appendChild(card);
     }
-    var timer = document.getElementById("timer");
-    var score = document.getElementById("score");
-    var clearInterval = setInterval(function() {
+    let timer = document.getElementById("timer");
+    let score = document.getElementById("score");
+    let clearInterval = setInterval(() => {
         if(parseInt(timer.textContent) === 0) {
-            alert("You lost!");
+            stopThemeSong();
+            lose.volume = 0.2;
+            lose.play();
+            setTimeout(() => {
+                alert("You lost!");
+            }, 0);
             location.reload();
             this.clearInterval(clearInterval);
         }
         else if(parseInt(score.textContent) === 15) {
-            alert("You win!");
+            stopThemeSong();
+            win.volume = 0.5;
+            win.play();
+            setTimeout(() => {
+                alert("You win!");
+            }, 0);           
             location.reload();
             this.clearInterval(clearInterval);
         } else {
@@ -51,42 +64,53 @@ window.onload = function() {
     }, 1000)
 }
 
-function showImage(event) {
-    document.getElementById(event.target.id).className = "card-transition";
+const stopThemeSong = () => {
+    if (!theme.paused) {
+        theme.pause();
+    }
 }
 
-function getRandomImage() {
-    return "url('Images/HufflepuffRavenClaw/" + imagesList[imageIndex++] + ".jpg')";
-}
-
-function shuffle(array) {
+const shuffle = (array) => {
     return array.map((a) => [Math.random(),a]).sort((a,b) => a[0]-b[0]).map((a) => a[1]);
 }
 
-function checkMatchingImages() {
-    var score = document.getElementById("score");
-    let firstImageCard = document.getElementById(firstImageId);
-    let secondImageCard = document.getElementById(secondImageId);
-    let sameImages = firstImageCard.childNodes[1].style.backgroundImage 
-                     === secondImageCard.childNodes[1].style.backgroundImage
-                     ? true : false;
+const checkMatchingImages = () => {
+    let score = document.getElementById("score");
+    const firstImageCard = document.getElementById(firstImageId);
+    const secondImageCard = document.getElementById(secondImageId);
 
+    const firstImageIndex = shuffledCards.findIndex(x => x.id === firstImageId);
+    const secondImageIndex = shuffledCards.findIndex(x => x.id === secondImageId);
+
+    const sameImages = firstImageCard.childNodes[1].style.backgroundImage 
+                     === secondImageCard.childNodes[1].style.backgroundImage;
     if(!sameImages) {
-        firstImageCard.style.transform = "none";
-        secondImageCard.style.transform = "none";
+        if(!shuffledCards[firstImageIndex].flipped) {
+            firstImageCard.style.transform = "none";
+        }
+        if(!shuffledCards[secondImageIndex].flipped) {
+            secondImageCard.style.transform = "none";
+        }
     } else {
+        shuffledCards[firstImageIndex].flipped = true;
+        shuffledCards[secondImageIndex].flipped = true;
         score.textContent = parseInt(score.textContent) + 1;
     }
     numberOfClicks = 0;
 }
 
-function swapCardFace(event) {
+const swapCardFace = (event) => {
+    if(startMusic) {
+        theme.volume = 0.5;
+        theme.play();
+        startMusic = false;
+    }
     let innerCard = event.target.parentNode;
     if(numberOfClicks === 0) {
         firstImageId = innerCard.id;
         innerCard.style.transform = "rotateY(180deg)";
         numberOfClicks++;
-    } else if(numberOfClicks === 1) {
+    } else if(numberOfClicks === 1 && firstImageId !== innerCard.id) {
         secondImageId = innerCard.id;
         innerCard.style.transform = "rotateY(180deg)";
         numberOfClicks++;
