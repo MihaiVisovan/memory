@@ -28,7 +28,9 @@ window.onload = () => {
         let innerCard = document.createElement("div");
         innerCard.className = "card-inner";
         innerCard.setAttribute("id", shuffledCards[i].id);
-        innerCard.addEventListener('click', swapCardFace);
+        setTimeout(() => {
+            innerCard.addEventListener('click', swapCardFace);
+        }, 5000)
 
         let frontCard = document.createElement("div")
         frontCard.className = "card-front";
@@ -56,6 +58,7 @@ window.onload = () => {
             }, 0);
             location.reload();
             this.clearInterval(clearInterval);
+            clearInterval(myCounter);
         }
         else if(parseInt(score.textContent) === 15) {
             stopThemeSong();
@@ -66,6 +69,7 @@ window.onload = () => {
             }, 0);           
             location.reload();
             this.clearInterval(clearInterval);
+            clearInterval(myCounter);
         }
     }, 1000)
 }
