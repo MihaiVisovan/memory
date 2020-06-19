@@ -8,7 +8,8 @@ let firstImageId = 0;
 let secondImageId = 0;
 let startMusic = true;
 let shuffledCards = [];
-
+var myCounter;
+    
 window.addEventListener('popstate', () => {
     theme.pause();
     win.pause();
@@ -17,6 +18,8 @@ window.addEventListener('popstate', () => {
 
 window.onload = () => {
     shuffledCards = shuffle(easyCards);
+    let content = document.getElementById("cards");
+    content.style.pointerEvents = "none";
 
     for (i = 0; i < numberOfCards; i++) {
         let card = document.createElement("div");
@@ -25,9 +28,7 @@ window.onload = () => {
         let innerCard = document.createElement("div");
         innerCard.className = "card-inner";
         innerCard.setAttribute("id", shuffledCards[i].id);
-        setTimeout(() => {
-            innerCard.addEventListener('click', swapCardFace);
-        }, 5000)
+        innerCard.addEventListener('click', swapCardFace);
 
         let frontCard = document.createElement("div")
         frontCard.className = "card-front";
@@ -65,9 +66,7 @@ window.onload = () => {
             }, 0);           
             location.reload();
             this.clearInterval(clearInterval);
-        } else {
-            timer.textContent = timer.textContent - 1;
-        }   
+        }
     }, 1000)
 }
 
@@ -125,3 +124,25 @@ const swapCardFace = (event) => {
     }
 }
 
+const toggleCounter = (count) => {
+    let content = document.getElementById("cards");
+    let startText = document.getElementsByClassName("buttons-style")[0];
+    if(count) {
+        if(startText.textContent.includes("Start")) {
+            startText.textContent = "Resume";
+            console.log(startText.textContent);
+        }
+        content.style.pointerEvents = "auto";
+        if(theme.paused) {
+            theme.volume = 0.5;
+            theme.play();
+            myCounter = setInterval(() => {
+                timer.textContent = timer.textContent - 1;
+            }, 1000)
+        }
+    } else {
+        theme.pause();
+        content.style.pointerEvents = "none";
+        clearInterval(myCounter);
+    }
+}

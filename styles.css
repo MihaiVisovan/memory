@@ -32,10 +32,40 @@ body {
     text-shadow: 1px 0 white, 0 2px white, 2px 0 white, 0 2px white;
 }
 
+.info-style {
+    margin-top: -5%;
+}
+
 .title-style {
+    padding-right:5%;
     font-size: 200px;
-    padding-top: 5%;
-    padding-right: 5%;    
+    padding-top: 3%;
+}
+
+.buttons-wrapper {
+    margin-top: -20%;
+    margin-bottom: 10%;
+}
+
+.buttons-style {
+    font-family: 'MagicSchool';
+    text-shadow: 1px 0 white, 0 2px white, 2px 0 white, 0 2px white;
+    background-color: transparent;
+    font-size: 100px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: 0 5% 0 0;
+}
+
+.buttons-style:hover {
+    text-shadow: 3px 0 black, 0 4px black, 4px 0 black, 0 4px black;
+    color: white;
+}
+
+.buttons-style:target {
+    text-shadow: 3px 0 black, 0 4px black, 4px 0 black, 0 4px black;
+    color: white;
 }
 
 .card {
@@ -124,7 +154,7 @@ body {
 }
 
 .cards-style {
-    margin: 10% auto 0% auto;
+    margin: 15% auto 0% auto;
 }
 
 @keyframes fadeTextOut {
@@ -207,7 +237,7 @@ body {
         font-size: 60px;
     }
     .title-style {
-        font-size: 110px;
+        font-size: 130px;
     }
     .center-content {
         margin: 0;
@@ -242,5 +272,11 @@ body {
     }
     .fog-container {
         overflow-y: hidden;
+    }
+    .buttons-wrapper {
+        margin-top: -10%;
+    }
+    .buttons-style {
+        font-size: 80px;
     }
 }
