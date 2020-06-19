@@ -4,7 +4,6 @@
 }
 
 body {
-    overflow-x: hidden;
     margin: 0;
 }
 
@@ -21,27 +20,30 @@ body {
     position: relative;
     text-align: center;
     z-index: 3;
-    margin-top: 15vh;
+    margin-top: 5vh;
+    width: 100%;
+    height: 100%;
 }
 
 .info-style, .title-style{
-    font-size: 60px;
+    font-size: 90px;
     color: black;
     font-family: 'MagicSchool';
     text-shadow: 1px 0 white, 0 2px white, 2px 0 white, 0 2px white;
 }
 
 .title-style {
-    font-size: 110px;
-    margin-bottom: -4%;
+    font-size: 200px;
+    padding-top: 5%;
+    padding-right: 5%;    
 }
 
 .card {
     background-color: transparent;
-    width: 130px;
-    height: 130px;
+    width: 13%;
+    height: 9vh;
     perspective: 1000px;
-    margin: 0px 10px 20px 10px;
+    margin: 0px 1% 2% 1%;
     cursor: pointer;
     border-radius: 5px;
     display: inline-block;
@@ -110,43 +112,44 @@ body {
 }
 
 .cloud-style {
+    margin: auto;
+    margin-top: -3%;
     background-image: none;
     background-size:  100%;
     background-repeat: no-repeat;
     height: 400px;
     width: 720px;
-    margin: 0 auto;
     animation: cloud 5s linear 1 forwards;
     opacity: 0.8;
 }
 
 .cards-style {
-    margin: -30px auto 0% auto;
+    margin: 10% auto 0% auto;
 }
 
 @keyframes fadeTextOut {
-    0% {
+    from {
         opacity: 0;
     }
-    100% {
+    to {
         opacity: 1;
     }
 }
 
 @keyframes moveRowToRight {
-    0% {
+    from {
         left: 0px;
     }
-    100% {
+    to {
         left: 1500px;
     }
 }
 
 @keyframes moveRowToLeft {
-    0% {
+    from {
         left: -1500px;
     }
-    100% {
+    to {
         left: 0px;
     }
 }
@@ -163,7 +166,7 @@ body {
     height: 100%;
     width: 100%;
     z-index: 2;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .fog-img {
@@ -185,34 +188,44 @@ body {
 }
 
 @keyframes marquee {
-  0% { 
-    transform: translate3d(0, 0, 0); 
-  }
-  
-  100% { 
-    transform: translate3d(-200vw, 0, 0); 
-  }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-200vw, 0, 0); }
 }
 
 @media only screen and (min-device-width: 600px){
     .fog-img {
         height: 0;
     }
+    .fog-container {
+        overflow-y: scroll;
+    }
+    .card {
+        width: 13%;
+        height: calc(10vh + 5vw);
+    }
 }
 
+
 @media only screen and (min-width: 1200px){
-    .card {
-      width: 85px;
-      height: 85px;
+    .info-style {
+        font-size: 60px;
     }
-    .cards-style {
-        width: 720px;
+    .title-style {
+        font-size: 110px;
     }
     .center-content {
         margin: 0;
     }
     .cloud-style {
         background-image: url("Media/Images/Clouds.png");
+    }
+    .cards-style {
+        width: 45%;
+        margin: -30px auto 0% auto;
+    }
+    .card {
+        width: 13%;
+        height: 11vh;
     }
     .card-front {
         background-color: #2E5053;
@@ -231,39 +244,7 @@ body {
     .fog-img {
         height: 100vh;
     }
-}
-
-/* 
-
-.fog-img {
-    position: absolute;
-    height: 100vh;
-    width: 300vw;
-    z-index: 2;
-} */
-  
-/* .fog-img-first {
-    background: url("Media/Images/fog-1.png");
-    background-repeat: repeat-x;
-    background-size: contain;
-    background-position: center;
-    animation: marquee 30s linear infinite;
-} */
-/* 
-.fog-img-second {
-    background: url("Media/Images/fog-2.png");
-    background-repeat: repeat-x;
-    background-size: contain;
-    background-position: center;
-    animation: marquee 60s linear infinite;
-} */
-
-/* @keyframes marquee {
-    0% {
-        transform: translate3d(0, 0, 0);
+    .fog-container {
+        overflow-y: hidden;
     }
-
-    100% {
-        transform: translate3d(-200vw, 0, 0);
-    }       
-} */
+}
