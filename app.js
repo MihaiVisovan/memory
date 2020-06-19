@@ -9,8 +9,15 @@ let secondImageId = 0;
 let startMusic = true;
 let shuffledCards = [];
 
+window.addEventListener('popstate', () => {
+    theme.pause();
+    win.pause();
+    lose.pause();
+});
+
 window.onload = () => {
     shuffledCards = shuffle(easyCards);
+
     for (i = 0; i < numberOfCards; i++) {
         let card = document.createElement("div");
         card.className = "card";
