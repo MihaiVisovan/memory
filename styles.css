@@ -41,7 +41,7 @@ body {
 .card {
     background-color: transparent;
     width: 13%;
-    height: 9vh;
+    height: 130px;
     perspective: 1000px;
     margin: 0px 1% 2% 1%;
     cursor: pointer;
@@ -198,10 +198,6 @@ body {
     }
     .fog-container {
         overflow-y: scroll;
-    }
-    .card {
-        width: 13%;
-        height: calc(10vh + 5vw);
     }
 }
 
