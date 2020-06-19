@@ -102,7 +102,7 @@ body {
 }
 
 .card-back {
-    background-size: 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     color: white;
     transform: rotateY(180deg);
