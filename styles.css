@@ -38,8 +38,8 @@ body {
 
 .card {
     background-color: transparent;
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     perspective: 1000px;
     margin: 0px 10px 20px 10px;
     cursor: pointer;
@@ -121,7 +121,6 @@ body {
 
 .cards-style {
     margin: -30px auto 0% auto;
-    width: 750px;
 }
 
 @keyframes fadeTextOut {
