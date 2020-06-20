@@ -132,10 +132,6 @@ const toggleCounter = (count) => {
     let content = document.getElementById("cards");
     let startText = document.getElementsByClassName("buttons-style")[0];
     if(count) {
-        if(startText.textContent.includes("Start")) {
-            startText.textContent = "Resume";
-            console.log(startText.textContent);
-        }
         content.style.pointerEvents = "auto";
         if(theme.paused) {
             theme.volume = 0.5;
@@ -145,6 +141,9 @@ const toggleCounter = (count) => {
             }, 1000)
         }
     } else {
+        if(startText.textContent.includes("Start")) {
+            startText.textContent = "Resume";
+        }
         theme.pause();
         content.style.pointerEvents = "none";
         clearInterval(myCounter);
