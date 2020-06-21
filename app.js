@@ -3,12 +3,18 @@ const numberOfCards = 30;
 const theme = new Audio('Media/Music/theme.mp3');
 const win = new Audio('Media/Music/win.mp3');
 const lose = new Audio('Media/Music/lose.mp3');
+theme.volume = 0.5;
+lose.volume = 0.2;
+win.volume = 0.4;
+
 let numberOfClicks = 0;
 let firstImageId = 0;
 let secondImageId = 0;
 let startMusic = true;
 let shuffledCards = [];
 var myCounter;
+var myTimeout;
+var modal;
     
 window.addEventListener('popstate', () => {
     theme.pause();
@@ -30,7 +36,7 @@ window.onload = () => {
         innerCard.setAttribute("id", shuffledCards[i].id);
         setTimeout(() => {
             innerCard.addEventListener('click', swapCardFace);
-        }, 5000)
+        }, 3000)
 
         let frontCard = document.createElement("div")
         frontCard.className = "card-front";
@@ -46,32 +52,51 @@ window.onload = () => {
 
         document.getElementById("cards").appendChild(card);
     }
-    let timer = document.getElementById("timer");
-    let score = document.getElementById("score");
-    let clearInterval = setInterval(() => {
-        if(parseInt(timer.textContent) === 0) {
-            stopThemeSong();
-            lose.volume = 0.2;
-            lose.play();
-            setTimeout(() => {
-                alert("You lost!");
-            }, 0);
-            location.reload();
-            this.clearInterval(clearInterval);
-            clearInterval(myCounter);
-        }
-        else if(parseInt(score.textContent) === 15) {
-            stopThemeSong();
-            win.volume = 0.5;
-            win.play();
-            setTimeout(() => {
-                alert("You win!");
-            }, 0);           
-            location.reload();
-            this.clearInterval(clearInterval);
-            clearInterval(myCounter);
-        }
-    }, 1000)
+    modal = document.getElementById("myModal");
+}
+
+window.onclick = (event) => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      let fog = document.getElementsByClassName("fog")[0];
+      let content = document.getElementById("cards");
+      let pauseText = document.getElementsByClassName("buttons-style")[1];
+      fog.style.pointerEvents = "none";
+      content.style.pointerEvents = "none";
+      pauseText.style.pointerEvents = "none";
+    }
+  }
+  
+
+const openModal = (type) => {
+    modal.style.display = "block";
+    let status = document.getElementsByClassName("status")[0];
+    clearTimeout(myTimeout);
+    clearInterval(myCounter);
+    if(type === "Lose") {
+        status.textContent = "You Lose!";
+        stopThemeSong();
+        lose.play();
+    } else if (type === "Win") {
+        status.textContent = "You Win!";
+        stopThemeSong();
+        win.play();
+    }
+}
+
+const closeModal = () => {
+    modal.style.display = "none";
+    let fog = document.getElementsByClassName("fog")[0];
+    let content = document.getElementById("cards");
+    let pauseText = document.getElementsByClassName("buttons-style")[1];
+    fog.style.pointerEvents = "none";
+    content.style.pointerEvents = "none";
+    pauseText.style.pointerEvents = "none";
+}
+
+const restartGame = () => {
+    location.reload();
+    modal.style.display = "none";
 }
 
 const stopThemeSong = () => {
@@ -105,13 +130,15 @@ const checkMatchingImages = () => {
         shuffledCards[firstImageIndex].flipped = true;
         shuffledCards[secondImageIndex].flipped = true;
         score.textContent = parseInt(score.textContent) + 1;
+        if (parseInt(score.textContent) === 15) {
+            openModal("Win");
+        }
     }
     numberOfClicks = 0;
 }
 
 const swapCardFace = (event) => {
     if(startMusic) {
-        theme.volume = 0.5;
         theme.play();
         startMusic = false;
     }
@@ -131,14 +158,26 @@ const swapCardFace = (event) => {
 const toggleCounter = (count) => {
     let content = document.getElementById("cards");
     let startText = document.getElementsByClassName("buttons-style")[0];
+    let pauseText = document.getElementsByClassName("buttons-style")[1];
+    let timer = document.getElementById("timer");
+
     if(count) {
+        if(startText.textContent.includes("Start")) {
+            pauseText.style.pointerEvents = "auto";
+        }
         content.style.pointerEvents = "auto";
         if(theme.paused) {
             theme.volume = 0.5;
             theme.play();
-            myCounter = setInterval(() => {
+            myCounter = setInterval(() => { 
                 timer.textContent = timer.textContent - 1;
             }, 1000)
+
+            myTimeout = setTimeout(() => {
+                if(parseInt(timer.textContent) === 0) {
+                    openModal("Lose");
+                }
+            }, timer.textContent * 1000)
         }
     } else {
         if(startText.textContent.includes("Start")) {

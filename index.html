@@ -39,15 +39,21 @@
                                 <button class="buttons-style" onclick="toggleCounter(true)">
                                     Start
                                 </button>
-                                <button class="buttons-style" onclick="toggleCounter(false)">
+                                <button class="buttons-style" style="pointer-events:none;" onclick="toggleCounter(false)">
                                     Pause
                                 </button>
                             </div>
                         </div>
                     </div>
+                    <div id="myModal" class="modal">
+                    <div class="modal-wrapper">
+                        <div class="close" onclick="closeModal()">X</div>
+                        <div class="status">You Win!</div>
+                        <div class="restart" onclick="restartGame()">Restart</div>
+                    </div>
+                        </div>
                     <div id="cards" class="cards-style"></div>
                 </div>
-            </div>
             </div>
     </body>
 </html>

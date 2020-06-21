@@ -96,37 +96,37 @@ body {
 .card-front {
     background-color: #1e4242;
     border: 1px solid #0E1D2F;
+    opacity: 0;
     box-shadow: 7px 7px 5px black;
 }
 
 .card-front[data-row='0'] {
-    animation-delay: 0.1s;
-    animation: moveRowToRight 5s 1 linear reverse, fadeTextOut 5s 1 linear;
+    animation: moveRowToRight 2s 1 linear reverse, fadeTextOut 3.5s 1 linear forwards;
 }
 
 .card-front[data-row='1'] {
-    animation-delay: 0.4s;
-    animation: moveRowToLeft 5s 1 linear normal, fadeTextOut 5s 1 linear;
+    animation: moveRowToLeft 2s 1 linear normal, fadeTextOut 3.5s 1 linear forwards;
+    animation-delay: 0.5s;
 }
 
 .card-front[data-row='2'] {
-    animation-delay: 0.7s;
-    animation: moveRowToRight 5s 1 linear reverse, fadeTextOut 5s 1 linear;
+    animation: moveRowToRight 2s 1 linear reverse, fadeTextOut 3.5s 1 linear forwards;
+    animation-delay: 1s;
 }
 
 .card-front[data-row='3'] {
-    animation-delay: 1.1s;
-    animation: moveRowToLeft 5s 1 linear normal, fadeTextOut 5s 1 linear;
+    animation: moveRowToLeft 2s 1 linear normal, fadeTextOut 3.5s 1 linear forwards;
+    animation-delay: 1.5s;
 }
 
 .card-front[data-row='4'] {
-    animation-delay: 1.4s;
-    animation: moveRowToRight 5s 1 linear reverse, fadeTextOut 5s 1 linear;
+    animation: moveRowToRight 2s 1 linear reverse, fadeTextOut 3.5s 1 linear forwards;
+    animation-delay: 2s;
 }
 
 .card-front[data-row='5'] {
-    animation-delay: 1.7s;
-    animation: moveRowToLeft 5s 1 linear normal, fadeTextOut 5s 1 linear;
+    animation: moveRowToLeft 2s 1 linear normal, fadeTextOut 3.5s 1 linear forwards;
+    animation-delay: 3.5s;
 }
 
 .card-back {
@@ -151,33 +151,6 @@ body {
 
 .cards-style {
     margin: 15% auto 0% auto;
-}
-
-@keyframes fadeTextOut {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes moveRowToRight {
-    from {
-        left: 0px;
-    }
-    to {
-        left: 1500px;
-    }
-}
-
-@keyframes moveRowToLeft {
-    from {
-        left: -1500px;
-    }
-    to {
-        left: 0px;
-    }
 }
 
 .fog {
@@ -213,6 +186,87 @@ body {
     animation: marquee 10s linear infinite;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    overflow-y: scroll;
+    left: 0;
+    top: 0;
+    z-index: 5; 
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+  
+.modal-wrapper {
+    background-image: url(Media/Images/Papyrus.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'MagicSchool';
+    margin: 50% auto;
+    margin-left: 8%;
+    height: 500px;
+    width: 80%;
+}
+
+.close {    
+    color: black;
+    font-size: 80px;
+    margin: 0% 0% 0% 60%;
+    padding-top: 2%;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    cursor: pointer;
+}
+
+.status {
+    font-size: 150px;
+    margin-left: 8%;
+    margin-top: -5%;
+}
+
+.restart {
+    font-size: 100px;
+    margin-left: 5%;
+}
+
+.restart:hover,
+.restart:focus {
+    color: white;
+    cursor: pointer;
+}
+
+@keyframes fadeTextOut {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moveRowToRight {
+    from {
+        left: 0px;
+    }
+    to {
+        left: 1500px;
+    }
+}
+
+@keyframes moveRowToLeft {
+    from {
+        left: -1500px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
 @keyframes marquee {
   0% { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(-200vw, 0, 0); }
@@ -226,7 +280,6 @@ body {
         overflow-y: scroll;
     }
 }
-
 
 @media only screen and (min-width: 1200px){
     .info-style {
@@ -276,7 +329,31 @@ body {
     .fog-container {
         overflow-y: hidden;
     }
-
+    .modal-wrapper {
+        width: 40%;
+        margin: 15% auto;
+        padding-right: 2%;
+        background-image: url("Media/Images/Papyrus.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: none;
+        font-family: 'MagicSchool';
+        height: 500px;
+    }
+    .close {    
+        color: black;
+        font-size: 50px;
+        margin: 0% 0% 0% 70%;
+    }
+    .status {
+        font-size: 120px;
+        margin-left: 10%;
+    }
+    .restart {
+        font-size: 80px;
+        margin-left: 8%;
+        margin-bottom: 5%;
+    }
 }
 
 @media only screen and (min-width: 1600px){
@@ -287,5 +364,18 @@ body {
     .card {
         width: 13%;
         height: 11vh;
+    }
+    .close {    
+        color: black;
+        font-size: 80px;
+        margin: 0% 0% 0% 60%;
+    }
+    .status {
+        font-size: 150px;
+        margin-left: 10%;
+    }
+    .restart {
+        font-size: 80px;
+        margin-left: 5%;
     }
 }
