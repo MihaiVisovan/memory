@@ -210,7 +210,7 @@ body {
     width: 80%;
 }
 
-.close {    
+.close-wrapper {    
     color: black;
     font-size: 80px;
     margin: 0% 0% 0% 60%;
@@ -229,7 +229,7 @@ body {
     margin-top: -5%;
 }
 
-.restart {
+.restart-wrapper {
     font-size: 100px;
     margin-left: 5%;
 }
@@ -340,16 +340,17 @@ body {
         font-family: 'MagicSchool';
         height: 500px;
     }
-    .close {    
+    .close-wrapper {    
         color: black;
-        font-size: 50px;
+        font-size: 60px;
         margin: 0% 0% 0% 70%;
+        padding-top: 3%;
     }
     .status {
         font-size: 120px;
         margin-left: 10%;
     }
-    .restart {
+    .restart-wrapper {
         font-size: 80px;
         margin-left: 8%;
         margin-bottom: 5%;
@@ -365,17 +366,17 @@ body {
         width: 13%;
         height: 11vh;
     }
-    .close {    
+    .close-wrapper {
         color: black;
         font-size: 80px;
         margin: 0% 0% 0% 60%;
+        padding-top: 3%;
     }
     .status {
         font-size: 150px;
         margin-left: 10%;
     }
-    .restart {
+    .restart-wrapper {
         font-size: 80px;
-        margin-left: 5%;
     }
 }

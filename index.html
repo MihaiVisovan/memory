@@ -31,18 +31,18 @@
                             <div class="info-style">
                                 Timer:
                                 <span id="timer">
-                                    200
+                                    50
                                 </span>
                                 Score:
                                 <span id="score">
-                                    0
+                                    14
                                 </span>
                             </div>
                             <div class="buttons-wrapper">
-                                <button class="buttons-style" onclick="toggleCounter(true)">
+                                <button class="buttons-style" onclick="toggleGame()">
                                     Start
                                 </button>
-                                <button class="buttons-style" style="pointer-events:none;" onclick="toggleCounter(false)">
+                                <button class="buttons-style" style="pointer-events:none;" onclick="toggleCounter()">
                                     Pause
                                 </button>
                             </div>
@@ -50,9 +50,13 @@
                     </div>
                     <div id="myModal" class="modal">
                     <div class="modal-wrapper">
-                        <div class="close" onclick="closeModal()">X</div>
+                        <div class="close-wrapper">
+                            <span class="close" onclick="closeModal()">X</span>
+                        </div>
                         <div class="status">You Win!</div>
-                        <div class="restart" onclick="restartGame()">Restart</div>
+                        <div class="restart-wrapper">
+                            <span class="restart" onclick="restartGame()">Restart</span>
+                        </div>
                     </div>
                         </div>
                     <div id="cards" class="cards-style"></div>

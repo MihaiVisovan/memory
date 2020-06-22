@@ -57,13 +57,7 @@ window.onload = () => {
 
 window.onclick = (event) => {
     if (event.target == modal) {
-      modal.style.display = "none";
-      let fog = document.getElementsByClassName("fog")[0];
-      let content = document.getElementById("cards");
-      let pauseText = document.getElementsByClassName("buttons-style")[1];
-      fog.style.pointerEvents = "none";
-      content.style.pointerEvents = "none";
-      pauseText.style.pointerEvents = "none";
+        closeModal();
     }
 }
 
@@ -72,8 +66,8 @@ const openModal = (type) => {
     let status = document.getElementsByClassName("status")[0];
     clearTimeout(myTimeout);
     clearInterval(myCounter);
-    if(type === "Lose") {
-        status.textContent = "You Lose!";
+    if(type === "Lost") {
+        status.textContent = "You Lost!";
         stopThemeSong();
         lose.play();
     } else if (type === "Win") {
@@ -88,14 +82,11 @@ const closeModal = () => {
     let fog = document.getElementsByClassName("fog")[0];
     let content = document.getElementById("cards");
     let pauseText = document.getElementsByClassName("buttons-style")[1];
+    let startText = document.getElementsByClassName("buttons-style")[0];
     fog.style.pointerEvents = "none";
     content.style.pointerEvents = "none";
     pauseText.style.pointerEvents = "none";
-}
-
-const restartGame = () => {
-    location.reload();
-    modal.style.display = "none";
+    startText.style.pointerEvents = "auto";
 }
 
 const stopThemeSong = () => {
@@ -154,36 +145,54 @@ const swapCardFace = (event) => {
     }
 }
 
-const toggleCounter = (count) => {
+const restartGame = () => {
+    location.reload();
+    modal.style.display = "none";
+}
+
+const startTimer = () =>{
+    let timer = document.getElementById("timer");
     let content = document.getElementById("cards");
+    content.style.pointerEvents = "auto";
+    if(theme.paused) {
+        theme.volume = 0.5;
+        theme.play();
+        myCounter = setInterval(() => { 
+            timer.textContent = timer.textContent - 1;
+        }, 1000)
+
+        myTimeout = setTimeout(() => {
+            if(parseInt(timer.textContent) === 0) {
+                openModal("Lost");
+            }
+        }, timer.textContent * 1000)
+    }
+}
+
+const toggleGame = () => {
     let startText = document.getElementsByClassName("buttons-style")[0];
     let pauseText = document.getElementsByClassName("buttons-style")[1];
-    let timer = document.getElementById("timer");
+    if (startText.textContent.includes("Start")) {
+        pauseText.style.pointerEvents = "auto";
+        startText.textContent = "Restart";
+        startTimer();
+    } else if(startText.textContent.includes("Restart")) {
+        restartGame();
+    }
+}
 
-    if(count) {
-        if(startText.textContent.includes("Start")) {
-            pauseText.style.pointerEvents = "auto";
-        }
-        content.style.pointerEvents = "auto";
-        if(theme.paused) {
-            theme.volume = 0.5;
-            theme.play();
-            myCounter = setInterval(() => { 
-                timer.textContent = timer.textContent - 1;
-            }, 1000)
-
-            myTimeout = setTimeout(() => {
-                if(parseInt(timer.textContent) === 0) {
-                    openModal("Lose");
-                }
-            }, timer.textContent * 1000)
-        }
-    } else {
-        if(startText.textContent.includes("Start")) {
-            startText.textContent = "Resume";
-        }
+const toggleCounter = () => {
+    let content = document.getElementById("cards");
+    let pauseText = document.getElementsByClassName("buttons-style")[1];
+    if(pauseText.textContent.includes("Resume")) {
+        pauseText.textContent = "Pause";
+        startTimer();
+    } else if(pauseText.textContent.includes("Pause")) {
         theme.pause();
+        pauseText.textContent = "Resume";
         content.style.pointerEvents = "none";
         clearInterval(myCounter);
     }
 }
+
+
