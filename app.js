@@ -65,8 +65,7 @@ window.onclick = (event) => {
       content.style.pointerEvents = "none";
       pauseText.style.pointerEvents = "none";
     }
-  }
-  
+}
 
 const openModal = (type) => {
     modal.style.display = "block";
