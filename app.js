@@ -25,7 +25,9 @@ window.addEventListener('popstate', () => {
 window.onload = () => {
     shuffledCards = shuffle(easyCards);
     let content = document.getElementById("cards");
+    let startText = document.getElementsByClassName("buttons-style")[0];
     content.style.pointerEvents = "none";
+    startText.style.pointerEvents = "none";
 
     for (i = 0; i < numberOfCards; i++) {
         let card = document.createElement("div");
@@ -36,7 +38,8 @@ window.onload = () => {
         innerCard.setAttribute("id", shuffledCards[i].id);
         setTimeout(() => {
             innerCard.addEventListener('click', swapCardFace);
-        }, 3000)
+            startText.style.pointerEvents = "auto";
+        }, 4000)
 
         let frontCard = document.createElement("div")
         frontCard.className = "card-front";
