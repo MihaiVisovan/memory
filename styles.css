@@ -76,7 +76,7 @@ body {
 .card {
     background-color: transparent;
     width: 13%;
-    height: 130px;
+    height: 120px;
     perspective: 1000px;
     margin: 0px 1% 2% 1%;
     cursor: pointer;
@@ -311,12 +311,12 @@ body {
         background-image: url("Media/Images/Clouds.png");
     }
     .cards-style {
-        width: 45%;
-        margin: -85px auto 0 auto;
+        width: 40%;
+        margin: -50px auto 0 auto;
     }
     .card {
         width: 13%;
-        height: 9vh;
+        height: 8vh;
     }
     .card-front {
         background-color: #2E5053;
@@ -368,12 +368,11 @@ body {
 
 @media only screen and (min-width: 1600px){
     .cards-style {
-        width: 45%;
         margin: -80px auto 0 auto;
     }
     .card {
         width: 13%;
-        height: 11vh;
+        height: 9vh;
     }
     .close-wrapper {
         color: black;
@@ -394,6 +393,10 @@ body {
 }
 
 @media only screen and (min-width: 1800px) {
+    .card {
+        width: 13%;
+        height: 10vh;
+    }
     .cloud-style {
         height: 500px;
         width: 850px;
