@@ -312,11 +312,11 @@ body {
     }
     .cards-style {
         width: 45%;
-        margin: -70px auto 0% auto;
+        margin: -85px auto 0 auto;
     }
     .card {
         width: 13%;
-        height: 10vh;
+        height: 9vh;
     }
     .card-front {
         background-color: #2E5053;
@@ -369,7 +369,7 @@ body {
 @media only screen and (min-width: 1600px){
     .cards-style {
         width: 45%;
-        margin: -50px auto 0% auto;
+        margin: -80px auto 0 auto;
     }
     .card {
         width: 13%;
@@ -387,5 +387,21 @@ body {
     }
     .restart-wrapper {
         font-size: 80px;
+    }
+    .fog-img {
+        height: 150vh;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .cloud-style {
+        height: 500px;
+        width: 850px;
+    }
+    .title-style {
+        padding-top: 5%;
+    }
+    .info-style {
+        margin: 0 0 -5% 0;
     }
 }
