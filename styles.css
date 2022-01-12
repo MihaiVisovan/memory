@@ -159,7 +159,7 @@ body {
 }
 
 .cards-style {
-    margin: 15% auto 0% auto;
+    margin: 15% 0 auto 0;
 }
 
 .fog {
@@ -309,10 +309,12 @@ body {
     }
     .cloud-style {
         background-image: url("Media/Images/Clouds.png");
+        height: 350px;
+        width: 650px;
     }
     .cards-style {
+        margin: 0 auto;
         width: 40%;
-        margin: -50px auto 0 auto;
     }
     .card {
         width: 13%;
@@ -368,7 +370,8 @@ body {
 
 @media only screen and (min-width: 1600px){
     .cards-style {
-        margin: -80px auto 0 auto;
+        margin: -25px auto 0 auto;
+        width: 40%;
     }
     .card {
         width: 13%;
@@ -393,6 +396,16 @@ body {
 }
 
 @media only screen and (min-width: 1800px) {
+    .info-style {
+        font-size: 60px;
+    }
+    .title-style {
+        font-size: 120px;
+    }
+    .cards-style {
+        margin: -100px auto 0 auto;
+        width: 40%;
+    }
     .card {
         width: 13%;
         height: 10vh;
@@ -400,11 +413,5 @@ body {
     .cloud-style {
         height: 500px;
         width: 850px;
-    }
-    .title-style {
-        padding-top: 5%;
-    }
-    .info-style {
-        margin: 0 0 -5% 0;
     }
 }
