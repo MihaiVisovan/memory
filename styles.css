@@ -292,25 +292,25 @@ body {
 
 @media only screen and (min-width: 1200px){
     .info-style {
-        font-size: 50px;
+        font-size: 40px;
         margin-top: -5%;
     }
     .title-style {
-        font-size: 100px;
+        font-size: 80px;
     }
     .buttons-wrapper {
         margin-top: -3%;
     }
     .buttons-style {
-        font-size: 90px;
+        font-size: 70px;
     }
     .center-content {
         margin: 0;
     }
     .cloud-style {
         background-image: url("Media/Images/Clouds.png");
-        height: 350px;
-        width: 650px;
+        height: 300px;
+        width: 550px;
     }
     .cards-style {
         margin: 0 auto;
@@ -396,6 +396,9 @@ body {
 }
 
 @media only screen and (min-width: 1800px) {
+    .buttons-style {
+        font-size: 90px;
+    }
     .info-style {
         font-size: 60px;
     }
