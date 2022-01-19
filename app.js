@@ -144,7 +144,7 @@ const swapCardFace = (event) => {
         secondImageId = innerCard.id;
         innerCard.style.transform = "rotateY(180deg)";
         numberOfClicks++;
-        setTimeout(checkMatchingImages, 700);
+        setTimeout(checkMatchingImages, 400);
     }
 }
 

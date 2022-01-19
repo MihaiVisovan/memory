@@ -46,7 +46,6 @@ body {
 }
 
 .title-style {
-    padding-right:5%;
     padding-top: 3%;
     font-size: 180px;
 }
@@ -54,7 +53,6 @@ body {
 .buttons-wrapper {
     margin-top: -10%;
     margin-bottom: 10%;
-    margin-left: 5%;
 }
 
 .buttons-style {
@@ -89,7 +87,7 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.6s;
+    transition: transform 0.5s;
     transform-style: preserve-3d;
 }
 
@@ -110,32 +108,43 @@ body {
 }
 
 .card-front[data-row='0'] {
-    animation: moveRowToRight 2s 1 linear reverse, fadeTextOut 3.5s 1 linear forwards;
+    animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
+    -webkit-animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
 }
 
 .card-front[data-row='1'] {
-    animation: moveRowToLeft 2s 1 linear normal, fadeTextOut 3.5s 1 linear forwards;
+    animation: moveRowToLeft 1s 1 linear normal, fadeTextOut 2.5s 1 linear forwards;
     animation-delay: 0.5s;
+    -webkit-animation: moveRowToLeft 1s 1 linear normal, fadeTextOut 2.5s 1 linear forwards;
+    -webkit-animation-delay: 0.5s;
 }
 
 .card-front[data-row='2'] {
-    animation: moveRowToRight 2s 1 linear reverse, fadeTextOut 3.5s 1 linear forwards;
+    animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
     animation-delay: 1s;
+    -webkit-animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
+    -webkit-animation-delay: 1s;
 }
 
 .card-front[data-row='3'] {
-    animation: moveRowToLeft 2s 1 linear normal, fadeTextOut 3.5s 1 linear forwards;
+    animation: moveRowToLeft 1s 1 linear normal, fadeTextOut 2.5s 1 linear forwards;
     animation-delay: 1.5s;
+    -webkit-animation: moveRowToLeft 1s 1 linear normal, fadeTextOut 2.5s 1 linear forwards;
+    -webkit-animation-delay: 1.5s;
 }
 
 .card-front[data-row='4'] {
-    animation: moveRowToRight 2s 1 linear reverse, fadeTextOut 3.5s 1 linear forwards;
+    animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
     animation-delay: 2s;
+    -webkit-animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
+    -webkit-animation-delay: 2s;
 }
 
 .card-front[data-row='5'] {
     animation: moveRowToLeft 2s 1 linear normal, fadeTextOut 3.5s 1 linear forwards;
     animation-delay: 3.5s;
+    -webkit-animation: moveRowToLeft 2s 1 linear normal, fadeTextOut 3.5s 1 linear forwards;
+    -webkit-animation-delay: 3.5s;
 }
 
 .card-back {
@@ -155,6 +164,7 @@ body {
     height: 400px;
     width: 720px;
     animation: cloud 5s linear 1 forwards;
+    -webkit-animation: cloud 5s linear 1 forwards;
     opacity: 0.8;
 }
 
@@ -187,12 +197,14 @@ body {
     background: url('Media/Images/fog-1.png') repeat-x;
     background-size: cover;
     animation: marquee 20s linear infinite;
+    -webkit-animation: marquee 20s linear infinite;
 }
 
 .fog-img-second {
     background: url('Media/Images/fog-2.png') repeat-x;
     background-size: cover;
     animation: marquee 10s linear infinite;
+    -webkit-animation: marquee 10s linear infinite;
 }
 
 .modal {
@@ -328,10 +340,12 @@ body {
     }
     .fog-img-first {
         animation: marquee 50s linear infinite;
+        -webkit-animation: marquee 50s linear infinite;
         background-size: contain;
     }
     .fog-img-second {
         animation: marquee 30s linear infinite;
+        -webkit-animation: marquee 30s linear infinite;
         background-size: contain;
     }
     .fog-img {
