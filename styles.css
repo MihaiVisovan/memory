@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'MagicSchool';
-    src: URL('Styles/MagicSchoolOne.ttf') format('truetype');
+  font-family: "MagicSchool";
+  src: URL("Styles/MagicSchoolOne.ttf") format("truetype");
 }
 
 input,
@@ -8,168 +8,182 @@ textarea,
 button,
 select,
 a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 .absolute-background {
-    background: url("Media/Images/MobileVersion.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+  background: url("Media/Images/MobileVersion.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .center-content {
-    position: relative;
-    text-align: center;
-    z-index: 3;
-    margin-top: 5vh;
-    width: 100%;
-    height: 100%;
-    margin-bottom: 5vh;
+  position: relative;
+  text-align: center;
+  z-index: 3;
+  margin-top: 5vh;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 5vh;
 }
 
-.info-style, .title-style{
-    font-size: 80px;
-    color: black;
-    font-family: 'MagicSchool';
-    text-shadow: 1px 0 white, 0 2px white, 2px 0 white, 0 2px white;
+.info-style,
+.title-style {
+  font-size: 80px;
+  color: black;
+  font-family: "MagicSchool";
+  text-shadow: 1px 0 white, 0 2px white, 2px 0 white, 0 2px white;
 }
 
 .info-style {
-    margin-top: -7%;
+  margin-top: -7%;
 }
 
 .title-style {
-    padding-top: 3%;
-    font-size: 180px;
+  padding-top: 3%;
+  font-size: 180px;
 }
 
 .buttons-wrapper {
-    margin-top: -10%;
-    margin-bottom: 10%;
+  margin-top: -10%;
+  margin-bottom: 10%;
 }
 
 .buttons-style {
-    font-family: 'MagicSchool';
-    text-shadow: 1px 0 white, 0 2px white, 2px 0 white, 0 2px white;
-    background-color: transparent;
-    font-size: 140px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    color: black;
+  font-family: "MagicSchool";
+  text-shadow: 1px 0 white, 0 2px white, 2px 0 white, 0 2px white;
+  background-color: transparent;
+  font-size: 140px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: black;
 }
 
 .buttons-style:hover {
-    text-shadow: 3px 0 black, 0 4px black, 4px 0 black, 0 4px black;
-    color: white;
+  text-shadow: 3px 0 black, 0 4px black, 4px 0 black, 0 4px black;
+  color: white;
 }
 
 .card {
-    background-color: transparent;
-    width: 13%;
-    height: 120px;
-    perspective: 1000px;
-    margin: 0px 1% 2% 1%;
-    cursor: pointer;
-    border-radius: 5px;
-    display: inline-block;
+  background-color: transparent;
+  width: 13%;
+  height: 120px;
+  perspective: 1000px;
+  margin: 0px 1% 2% 1%;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
 }
 
 .card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
 }
 
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    font-size: 25px;
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  font-size: 25px;
 }
 
 .card-front {
-    background-color: #1e4242;
-    border: 1px solid #0E1D2F;
-    opacity: 0;
-    box-shadow: 7px 7px 5px black;
+  background-color: #1e4242;
+  border: 1px solid #0e1d2f;
+  opacity: 0;
+  box-shadow: 7px 7px 5px black;
 }
 
-.card-front[data-row='0'] {
-    animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
-    -webkit-animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
+.card-front[data-row="0"] {
+  animation: moveRowToRight 1s 1 linear reverse,
+    fadeTextOut 2.5s 1 linear forwards;
+  -webkit-animation: moveRowToRight 1s 1 linear reverse,
+    fadeTextOut 2.5s 1 linear forwards;
 }
 
-.card-front[data-row='1'] {
-    animation: moveRowToLeft 1s 1 linear normal, fadeTextOut 2.5s 1 linear forwards;
-    animation-delay: 0.5s;
-    -webkit-animation: moveRowToLeft 1s 1 linear normal, fadeTextOut 2.5s 1 linear forwards;
-    -webkit-animation-delay: 0.5s;
+.card-front[data-row="1"] {
+  animation: moveRowToLeft 1s 1 linear normal,
+    fadeTextOut 2.5s 1 linear forwards;
+  animation-delay: 0.5s;
+  -webkit-animation: moveRowToLeft 1s 1 linear normal,
+    fadeTextOut 2.5s 1 linear forwards;
+  -webkit-animation-delay: 0.5s;
 }
 
-.card-front[data-row='2'] {
-    animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
-    animation-delay: 1s;
-    -webkit-animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
-    -webkit-animation-delay: 1s;
+.card-front[data-row="2"] {
+  animation: moveRowToRight 1s 1 linear reverse,
+    fadeTextOut 2.5s 1 linear forwards;
+  animation-delay: 1s;
+  -webkit-animation: moveRowToRight 1s 1 linear reverse,
+    fadeTextOut 2.5s 1 linear forwards;
+  -webkit-animation-delay: 1s;
 }
 
-.card-front[data-row='3'] {
-    animation: moveRowToLeft 1s 1 linear normal, fadeTextOut 2.5s 1 linear forwards;
-    animation-delay: 1.5s;
-    -webkit-animation: moveRowToLeft 1s 1 linear normal, fadeTextOut 2.5s 1 linear forwards;
-    -webkit-animation-delay: 1.5s;
+.card-front[data-row="3"] {
+  animation: moveRowToLeft 1s 1 linear normal,
+    fadeTextOut 2.5s 1 linear forwards;
+  animation-delay: 1.5s;
+  -webkit-animation: moveRowToLeft 1s 1 linear normal,
+    fadeTextOut 2.5s 1 linear forwards;
+  -webkit-animation-delay: 1.5s;
 }
 
-.card-front[data-row='4'] {
-    animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
-    animation-delay: 2s;
-    -webkit-animation: moveRowToRight 1s 1 linear reverse, fadeTextOut 2.5s 1 linear forwards;
-    -webkit-animation-delay: 2s;
+.card-front[data-row="4"] {
+  animation: moveRowToRight 1s 1 linear reverse,
+    fadeTextOut 2.5s 1 linear forwards;
+  animation-delay: 2s;
+  -webkit-animation: moveRowToRight 1s 1 linear reverse,
+    fadeTextOut 2.5s 1 linear forwards;
+  -webkit-animation-delay: 2s;
 }
 
-.card-front[data-row='5'] {
-    animation: moveRowToLeft 2s 1 linear normal, fadeTextOut 3.5s 1 linear forwards;
-    animation-delay: 3.5s;
-    -webkit-animation: moveRowToLeft 2s 1 linear normal, fadeTextOut 3.5s 1 linear forwards;
-    -webkit-animation-delay: 3.5s;
+.card-front[data-row="5"] {
+  animation: moveRowToLeft 2s 1 linear normal,
+    fadeTextOut 3.5s 1 linear forwards;
+  animation-delay: 3.5s;
+  -webkit-animation: moveRowToLeft 2s 1 linear normal,
+    fadeTextOut 3.5s 1 linear forwards;
+  -webkit-animation-delay: 3.5s;
 }
 
 .card-back {
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    color: white;
-    transform: rotateY(180deg);
-    box-shadow: 0px 0px 6px 2px black;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: white;
+  transform: rotateY(180deg);
+  box-shadow: 0px 0px 6px 2px black;
 }
 
 .cloud-style {
-    margin: auto;
-    margin-top: -3%;
-    background-image: none;
-    background-size:  100%;
-    background-repeat: no-repeat;
-    height: 400px;
-    width: 720px;
-    animation: cloud 5s linear 1 forwards;
-    -webkit-animation: cloud 5s linear 1 forwards;
-    opacity: 0.8;
+  margin: auto;
+  margin-top: -3%;
+  background-image: none;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 720px;
+  animation: cloud 5s linear 1 forwards;
+  -webkit-animation: cloud 5s linear 1 forwards;
+  opacity: 0.8;
 }
 
 .cards-style {
-    margin: 15% 0 auto 0;
+  margin: 15% 0 auto 0;
 }
 
 .fog {
@@ -180,255 +194,259 @@ body {
 }
 
 .fog-container {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-    overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  overflow: hidden;
 }
 
 .fog-img {
-    position: absolute;
-    height: 100vh;
-    width: 300vw;
+  position: absolute;
+  height: 100vh;
+  width: 300vw;
 }
 
 .fog-img-first {
-    background: url('Media/Images/fog-1.png') repeat-x;
-    background-size: cover;
-    animation: marquee 20s linear infinite;
-    -webkit-animation: marquee 20s linear infinite;
+  background: url("Media/Images/fog-1.png") repeat-x;
+  background-size: cover;
+  animation: marquee 20s linear infinite;
+  -webkit-animation: marquee 20s linear infinite;
 }
 
 .fog-img-second {
-    background: url('Media/Images/fog-2.png') repeat-x;
-    background-size: cover;
-    animation: marquee 10s linear infinite;
-    -webkit-animation: marquee 10s linear infinite;
+  background: url("Media/Images/fog-2.png") repeat-x;
+  background-size: cover;
+  animation: marquee 10s linear infinite;
+  -webkit-animation: marquee 10s linear infinite;
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    overflow-y: scroll;
-    left: 0;
-    top: 0;
-    z-index: 5; 
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-}
-  
-.modal-wrapper {
-    background-image: url(Media/Images/Papyrus.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: 'MagicSchool';
-    margin: 50% auto;
-    margin-left: 8%;
-    height: 500px;
-    width: 80%;
+  display: none;
+  position: fixed;
+  overflow-y: scroll;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.close-wrapper {    
-    color: black;
-    font-size: 80px;
-    margin: 0% 0% 0% 60%;
-    padding-top: 2%;
+.modal-wrapper {
+  background-image: url(Media/Images/Papyrus.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "MagicSchool";
+  margin: 50% auto;
+  margin-left: 8%;
+  height: 500px;
+  width: 80%;
+}
+
+.close-wrapper {
+  color: black;
+  font-size: 80px;
+  margin: 0% 0% 0% 60%;
+  padding-top: 2%;
 }
 
 .close:hover,
 .close:focus {
-    color: white;
-    cursor: pointer;
+  color: white;
+  cursor: pointer;
 }
 
 .status {
-    font-size: 150px;
-    margin-left: 8%;
-    margin-top: -5%;
+  font-size: 150px;
+  margin-left: 8%;
+  margin-top: -5%;
 }
 
 .restart-wrapper {
-    font-size: 100px;
-    margin-left: 5%;
+  font-size: 100px;
+  margin-left: 5%;
 }
 
 .restart:hover,
 .restart:focus {
-    color: white;
-    cursor: pointer;
+  color: white;
+  cursor: pointer;
 }
 
 @keyframes fadeTextOut {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes moveRowToRight {
-    from {
-        left: 0px;
-    }
-    to {
-        left: 1500px;
-    }
+  from {
+    left: 0px;
+  }
+  to {
+    left: 1500px;
+  }
 }
 
 @keyframes moveRowToLeft {
-    from {
-        left: -1500px;
-    }
-    to {
-        left: 0px;
-    }
+  from {
+    left: -1500px;
+  }
+  to {
+    left: 0px;
+  }
 }
 
 @keyframes marquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-200vw, 0, 0); }
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-200vw, 0, 0);
+  }
 }
 
-@media only screen and (min-device-width: 600px){
-    .fog-img {
-        height: 0;
-    }
-    .fog-container {
-        overflow-y: scroll;
-    }
+@media only screen and (min-device-width: 600px) {
+  .fog-img {
+    height: 0;
+  }
+  .fog-container {
+    overflow-y: scroll;
+  }
 }
 
-@media only screen and (min-width: 1200px){
-    .info-style {
-        font-size: 40px;
-        margin-top: -5%;
-    }
-    .title-style {
-        font-size: 80px;
-    }
-    .buttons-wrapper {
-        margin-top: -3%;
-    }
-    .buttons-style {
-        font-size: 70px;
-    }
-    .center-content {
-        margin: 0;
-    }
-    .cloud-style {
-        background-image: url("Media/Images/Clouds.png");
-        height: 300px;
-        width: 550px;
-    }
-    .cards-style {
-        margin: 0 auto;
-        width: 40%;
-    }
-    .card {
-        width: 13%;
-        height: 8vh;
-    }
-    .card-front {
-        background-color: #2E5053;
-    }
-    .absolute-background {
-        background: url("Media/Images/Hogwarts.jpg");
-    }
-    .fog-img-first {
-        animation: marquee 50s linear infinite;
-        -webkit-animation: marquee 50s linear infinite;
-        background-size: contain;
-    }
-    .fog-img-second {
-        animation: marquee 30s linear infinite;
-        -webkit-animation: marquee 30s linear infinite;
-        background-size: contain;
-    }
-    .fog-img {
-        height: 100vh;
-    }
-    .fog-container {
-        overflow-y: hidden;
-    }
-    .modal-wrapper {
-        width: 40%;
-        margin: 15% auto;
-        padding-right: 2%;
-        background-image: url("Media/Images/Papyrus.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        border: none;
-        font-family: 'MagicSchool';
-        height: 500px;
-    }
-    .close-wrapper {    
-        color: black;
-        font-size: 60px;
-        margin: 0% 0% 0% 70%;
-        padding-top: 3%;
-    }
-    .status {
-        font-size: 120px;
-        margin-left: 10%;
-    }
-    .restart-wrapper {
-        font-size: 80px;
-        margin-left: 8%;
-        margin-bottom: 5%;
-    }
+@media only screen and (min-width: 1200px) {
+  .info-style {
+    font-size: 40px;
+    margin-top: -5%;
+  }
+  .title-style {
+    font-size: 80px;
+  }
+  .buttons-wrapper {
+    margin-top: -3%;
+  }
+  .buttons-style {
+    font-size: 70px;
+  }
+  .center-content {
+    margin: 0;
+  }
+  .cloud-style {
+    background-image: url("Media/Images/Clouds.png");
+    height: 300px;
+    width: 550px;
+  }
+  .cards-style {
+    margin: 0 auto;
+    width: 40%;
+  }
+  .card {
+    width: 13%;
+    height: 8vh;
+  }
+  .card-front {
+    background-color: #2e5053;
+  }
+  .absolute-background {
+    background-image: url("Media/Images/Hogwarts.jpg");
+  }
+  .fog-img-first {
+    animation: marquee 50s linear infinite;
+    -webkit-animation: marquee 50s linear infinite;
+    background-size: contain;
+  }
+  .fog-img-second {
+    animation: marquee 30s linear infinite;
+    -webkit-animation: marquee 30s linear infinite;
+    background-size: contain;
+  }
+  .fog-img {
+    height: 100vh;
+  }
+  .fog-container {
+    overflow-y: hidden;
+  }
+  .modal-wrapper {
+    width: 40%;
+    margin: 15% auto;
+    padding-right: 2%;
+    background-image: url("Media/Images/Papyrus.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    font-family: "MagicSchool";
+    height: 500px;
+  }
+  .close-wrapper {
+    color: black;
+    font-size: 60px;
+    margin: 0% 0% 0% 70%;
+    padding-top: 3%;
+  }
+  .status {
+    font-size: 120px;
+    margin-left: 10%;
+  }
+  .restart-wrapper {
+    font-size: 80px;
+    margin-left: 8%;
+    margin-bottom: 5%;
+  }
 }
 
-@media only screen and (min-width: 1600px){
-    .cards-style {
-        margin: -25px auto 0 auto;
-        width: 40%;
-    }
-    .card {
-        width: 13%;
-        height: 9vh;
-    }
-    .close-wrapper {
-        color: black;
-        font-size: 80px;
-        margin: 0% 0% 0% 60%;
-        padding-top: 3%;
-    }
-    .status {
-        font-size: 150px;
-        margin-left: 10%;
-    }
-    .restart-wrapper {
-        font-size: 80px;
-    }
-    .fog-img {
-        height: 150vh;
-    }
+@media only screen and (min-width: 1600px) {
+  .cards-style {
+    margin: -25px auto 0 auto;
+    width: 40%;
+  }
+  .card {
+    width: 13%;
+    height: 9vh;
+  }
+  .close-wrapper {
+    color: black;
+    font-size: 80px;
+    margin: 0% 0% 0% 60%;
+    padding-top: 3%;
+  }
+  .status {
+    font-size: 150px;
+    margin-left: 10%;
+  }
+  .restart-wrapper {
+    font-size: 80px;
+  }
+  .fog-img {
+    height: 150vh;
+  }
 }
 
 @media only screen and (min-width: 1800px) {
-    .buttons-style {
-        font-size: 90px;
-    }
-    .info-style {
-        font-size: 60px;
-    }
-    .title-style {
-        font-size: 120px;
-    }
-    .cards-style {
-        margin: -100px auto 0 auto;
-        width: 40%;
-    }
-    .card {
-        width: 13%;
-        height: 10vh;
-    }
-    .cloud-style {
-        height: 500px;
-        width: 850px;
-    }
+  .buttons-style {
+    font-size: 90px;
+  }
+  .info-style {
+    font-size: 60px;
+  }
+  .title-style {
+    font-size: 120px;
+  }
+  .cards-style {
+    margin: -100px auto 0 auto;
+    width: 40%;
+  }
+  .card {
+    width: 13%;
+    height: 10vh;
+  }
+  .cloud-style {
+    height: 500px;
+    width: 850px;
+  }
 }
